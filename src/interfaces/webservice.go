@@ -2,10 +2,10 @@ package interfaces
 
 import (
 	"fmt"
+	"github.com/xvbnm48/go-clean-project/src/usecases"
 	"io"
 	"net/http"
 	"strconv"
-	"usecases"
 )
 
 type OrderInteractor interface {
@@ -22,6 +22,7 @@ func (handler WebserviceHandler) ShowOrder(res http.ResponseWriter, req *http.Re
 	orderId, _ := strconv.Atoi(req.FormValue("orderId"))
 	items, _ := handler.OrderInteractor.Items(userId, orderId)
 	for _, item := range items {
+		io.WriteString(res, "this is show order")
 		io.WriteString(res, fmt.Sprintf("item id: %d\n", item.Id))
 		io.WriteString(res, fmt.Sprintf("item name: %v\n", item.Name))
 		io.WriteString(res, fmt.Sprintf("item value: %f\n", item.Value))

@@ -1,9 +1,9 @@
 package interfaces
 
 import (
-	"domain"
 	"fmt"
-	"usecases"
+	"github.com/xvbnm48/go-clean-project/src/domain"
+	"github.com/xvbnm48/go-clean-project/src/usecases"
 )
 
 type DbHandler interface {
